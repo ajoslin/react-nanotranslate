@@ -1,6 +1,6 @@
 # react-nanotranslate [![Build Status](https://travis-ci.org/ajoslin/react-nanotranslate.svg?branch=master)](https://travis-ci.org/ajoslin/react-nanotranslate)
 
-> React context provider and component for nanotranslate
+> React context provider and component for [nanotranslate](github.com/ajoslin/nanotranslate)
 
 Set the current dictionary once at the top-level with a provider, and it will pass down via React context.
 
