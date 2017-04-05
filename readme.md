@@ -2,6 +2,8 @@
 
 > React context provider and component for nanotranslate
 
+Set the current dictionary once at the top-level with a provider, and it will pass down via React context.
+
 
 ## Install
 
@@ -13,32 +15,39 @@ $ npm install --save react-nanotranslate
 ## Usage
 
 ```js
-var reactNanotranslate = require('react-nanotranslate')
+const {Provider, Translate} = require('react-nanotranslate')
+const {render} = require('react-dom')
 
-reactNanotranslate('input')
-//=> output
+const dictionary = {
+  id: 'en_US',
+  values: {
+    HELLO: 'Hello, {{name}}.'
+  }
+}
+
+function App () {
+  return <Provider dictionary={dictionary}><SomeChild /></Provider>
+}
+
+function SomeChild () {
+  return <Translate id={'HELLO'} data={{name: 'Bob'}} />
+}
+
+render(App, document.body)
+// => <span>Hello, Bob.</span>
 ```
 
 ## API
 
-#### `reactNanotranslate(input, [options])` -> `output`
+#### `<Provider dictionary>`
 
-##### input
+Makes the dictionary available to `<Translate>` components in the hierarchy below.
 
-*Required*  
-Type: `string`
+#### `<Translate id data>`
 
-Lorem ipsum.
+Returns a span with a translated string inside of it.  Requires that the be defined as an ancestor.
 
-##### options
-
-###### foo
-
-Type: `boolean`  
-Default: `false`
-
-Lorem ipsum.
-
+`id` and `data` will be passed to nanotranslate as `translate(id, data)`.
 
 ## License
 
