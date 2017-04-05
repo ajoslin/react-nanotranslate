@@ -1,0 +1,37 @@
+{
+  "name": "react-nanotranslate",
+  "main": "index.js",
+  "version": "0.0.0",
+  "description": "React context provider and component for nanotranslate",
+  "license": "MIT",
+  "repository": "ajoslin/react-nanotranslate",
+  "author": {
+    "name": "Andrew Joslin",
+    "email": "andrewtjoslin@gmail.com",
+    "url": "ajoslin.com"
+  },
+  "scripts": {
+    "test": "standard && tape test.js"
+  },
+  "keywords": [
+    "react",
+    "nanotranslate",
+    "context",
+    "localization",
+    "tiny"
+  ],
+  "devDependencies": {
+    "enzyme": "^2.8.0",
+    "jsdom": "^9.12.0",
+    "nanotranslate": "^1.0.3",
+    "react": "^15.4.2",
+    "react-addons-test-utils": "^15.4.2",
+    "react-hyperscript": "^3.0.0",
+    "standard": "^7.0.0",
+    "tape": "^4.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=15.0.0",
+    "nanotranslate": ">=1.0.0"
+  }
+}
