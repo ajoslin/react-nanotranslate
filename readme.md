@@ -47,7 +47,7 @@ Makes the dictionary available to `<Translate>` components in the hierarchy belo
 
 Returns a span with a translated string inside of it.  Requires that the be defined as an ancestor.
 
-`id` and `data` will be passed to nanotranslate as `translate(id, data)`.
+`id` and `data` will be passed to nanotranslate: `translate(id, data)`.
 
 ## License
 
