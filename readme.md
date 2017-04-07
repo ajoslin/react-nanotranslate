@@ -39,15 +39,28 @@ render(App, document.body)
 
 ## API
 
-#### `<Provider dictionary>`
+#### `<Provider>`
 
-Makes the dictionary available to `<Translate>` components in the hierarchy below.
+Props
 
-#### `<Translate id data>`
+- **dictionary** (required): A [nanotranslate](https://github.com/ajoslin/nanotranslate) dictionary. Makes the dictionary available to `<Translate>` components in the hierarchy below.
 
-Returns a span with a translated string inside of it.  Requires that the be defined as an ancestor.
+#### `<Translate>`
+
+Returns a span with a translated string inside of it.
 
 `id` and `data` will be passed to nanotranslate: `translate(id, data)`.
+
+Requires a react-nanotranslate `Provider` as an ancestor.
+
+Props
+
+- **id** (required): The key of translation value in your dictionary.
+- **data** (optional, default `undefined`): Data to pass into nanotranslate's templating.
+- **tagName** (optional, default `'span'`):  The tag name of the lement that the translated value will be placed in.
+
+All other props (eg `className`) are forwarded to the created element.
+
 
 ## License
 

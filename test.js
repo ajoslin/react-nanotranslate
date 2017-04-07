@@ -40,3 +40,19 @@ test('fail without context', function (t) {
   )
   t.end()
 })
+
+test('allow custom tagName and other props', function (t) {
+  var wrapper = mount(
+    h(Provider, {dictionary}, [
+      h(Translate, {
+        tagName: 'article',
+        className: 'my-class',
+        id: 'HELLO',
+        data: {name: 'robot'}
+      })
+    ])
+  )
+
+  t.equal(wrapper.html(), '<article class="my-class">Hello, robot.</article>')
+  t.end()
+})
