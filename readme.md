@@ -36,6 +36,7 @@ function SomeChild () {
 render(App, document.body)
 // => <span>Hello, Bob.</span>
 ```
+You can see an interactive version of this here: https://codesandbox.io/s/mjY74g73
 
 ## API
 
