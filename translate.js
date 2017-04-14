@@ -1,6 +1,7 @@
 'use strict'
 
 var React = require('react')
+var PropTypes = require('prop-types')
 var TRANSLATE_PROPS = {
   id: true,
   data: true,
@@ -10,13 +11,13 @@ var TRANSLATE_PROPS = {
 module.exports = Translate
 
 Translate.contextTypes = {
-  translate: React.PropTypes.func.isRequired
+  translate: PropTypes.func.isRequired
 }
 
 Translate.propTypes = {
-  id: React.PropTypes.string.isRequired,
-  data: React.PropTypes.object,
-  tagName: React.PropTypes.string
+  id: PropTypes.string.isRequired,
+  data: PropTypes.object,
+  tagName: PropTypes.string
 }
 
 function Translate (props, context) {

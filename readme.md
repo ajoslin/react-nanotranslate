@@ -62,6 +62,21 @@ Props
 
 All other props (eg `className`) are forwarded to the created element.
 
+#### `<TranslateRaw>`
+
+When you need access to the raw nanotranslate instance from the react context, use this. Example:
+
+```js
+const {TranslateRaw} = requrie('react-nanotranslate')
+function MyComponent () {
+  return <TranslateRaw>
+    {(translate) => {
+    return <SomethingFun>{translate('HELLO', {name: 'Bob'})}</SomethingFun>
+    }}
+  </TranslateRaw>
+}
+```
+
 
 ## License
 

@@ -1,6 +1,7 @@
 'use strict'
 
 var React = require('react')
+var PropTypes = require('prop-types')
 var nanotranslate = require('nanotranslate')
 
 module.exports = Provider
@@ -13,13 +14,13 @@ function Provider (props) {
 }
 
 Provider.childContextTypes = {
-  translate: React.PropTypes.func.isRequired
+  translate: PropTypes.func.isRequired
 }
 
 Provider.propTypes = {
-  dictionary: React.PropTypes.shape({
-    id: React.PropTypes.string.isRequired,
-    values: React.PropTypes.object.isRequired
+  dictionary: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    values: PropTypes.object.isRequired
   })
 }
 
