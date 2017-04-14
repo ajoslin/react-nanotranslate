@@ -8,6 +8,7 @@ var test = require('tape')
 var h = require('react-hyperscript')
 var Provider = require('./provider')
 var Translate = require('./translate')
+var TranslateRaw = require('./translate-raw')
 var {mount} = require('enzyme')
 
 var dictionary = {
@@ -17,7 +18,7 @@ var dictionary = {
   }
 }
 
-test('it works', function (t) {
+test('it works', t => {
   var wrapper = mount(
     h(Provider, {dictionary}, [
       h(Translate, {
@@ -31,7 +32,7 @@ test('it works', function (t) {
   t.end()
 })
 
-test('fail without context', function (t) {
+test('fail without context', t => {
   t.throws(
     () => mount(h(Translate, {
       id: 'HELLO',
@@ -41,7 +42,7 @@ test('fail without context', function (t) {
   t.end()
 })
 
-test('allow custom tagName and other props', function (t) {
+test('allow custom tagName and other props', t => {
   var wrapper = mount(
     h(Provider, {dictionary}, [
       h(Translate, {
@@ -54,5 +55,19 @@ test('allow custom tagName and other props', function (t) {
   )
 
   t.equal(wrapper.html(), '<article class="my-class">Hello, robot.</article>')
+  t.end()
+})
+
+test('TranslateRaw', t => {
+  var wrapper = mount(
+    h(Provider, {dictionary}, [
+      h(TranslateRaw, null, (translate) => {
+        t.equal(typeof translate, 'function')
+        return h('.foo', translate('HELLO', {name: 'world'}))
+      })
+    ])
+  )
+
+  t.equal(wrapper.html(), '<div class="foo">Hello, world.</div>')
   t.end()
 })
